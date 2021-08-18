@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css'%}">
+    <title>Registered Students List</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: Arial;
+            box-sizing:border-box ;
+        }
+        body{
+            height:100vh;
+            display:grid;
+            place-items:center;
+        }
+        .head{
+            color: rgb(112, 22, 112);
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+           
+        }
+        table{
+            width: 600px;
+            box-shadow:-1px 12px 12px -6px rgba(0,0,0,0.5);}
+            table,td,th{
+                padding:20px;
+                border:1px salmon;
+                border-collapse: collapse;
+                text-align:center ;
+                margin-top:5px ;
+            }
+            td{
+                font-size: 20px;
+            }
+            th{
+                background-color: hotpink;
+                color:white;
+                font-size:22px ;
+               
+            }
+            tr:nth-child(odd){
+             background-color: lightgray;
+            }
+           
+               tr:nth-child(even){
+                background-color:navajowhite;
+               }
+              
+        
+             
+             
+        
+    </style>
+</head>
+
+<body>
+
+   
+        <div class="form">
+            <div class="head">
+            <h1>Registered Students List</h1>
+            </div>
+            </div>
+            </div>
+    <table>
+        <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.first_name}}</td>
+            <td>{{student.last_name}}</td>
+            <td>{{student.age}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

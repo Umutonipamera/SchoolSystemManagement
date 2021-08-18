@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION;TYPE=WORK:3.0
+FN;CHARSET=UTF-8:Solomon Eseme
+N;CHARSET=UTF-8:Solomon Eseme;;;;
+PROFILE:VCARD
+ADR;CHARSET=UTF-8:;;24 Wokenkoro Street;P;;500272;Nigeria
+EMAIL:masteringbackend@gmail.com
+ORG;CHARSET=UTF-8:Backend Development Community
+URL:https://masteringbackend.com
+END:VCARD
