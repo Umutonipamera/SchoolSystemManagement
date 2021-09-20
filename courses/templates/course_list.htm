@@ -1,0 +1,136 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Courses</title>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);    
+}
+
+table{
+    width: 900px;
+    margin-left: 15%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+   
+}
+
+th, caption{
+    text-align: left;
+}
+
+table, th, td{
+    border: 1px solid purple;
+
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 25px;
+}
+
+tr:nth-child(even){
+    background-color: rgb(255, 255, 255);
+}
+
+tr:nth-child(odd){
+    background-color:rgb(255, 255, 255);
+}
+
+.info {
+  border-color: purple;
+  color:purple;
+}
+  
+.info:hover {
+  background:purple;
+  color: white;
+}
+
+.info {
+  border-color: purple;
+  color:purple;
+}
+
+.info:hover {
+  background:purple;
+  color: white;
+}
+.clearfix {
+  margin: 15px;
+ 
+}
+.btn{
+  background-color:#ffffff;
+  color:purple;
+  border-radius: 15px;
+  padding: 15px;
+  align-items: center;
+  width: 500px;
+  margin-right: 71px;
+  border: 1px solid purple;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <center><h1>Registed Courses</h1></center>
+<div class="clearfix">
+    <a class="btn info" href="{% url 'register_courses' %}"> ADD COURSE </a>
+   </div>
+    <div class="vl"></div>
+    <table class="table">
+        <tr>
+            <th>Course Name</th>
+            <th>Course Id</th>
+            <th>Course Trainer</th>            
+            <th>Course Email</th>
+            <th>Course Channel</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for course in courses%}
+        <tr>
+            <td>
+                {{course.course_name}}
+            </td>
+            <td>
+                {{course.course_id}}
+            </td>
+            <td>
+                {{course.course_trainer}}
+            </td>
+            <td>
+                {{course.course_email}}
+            </td>
+            <td>
+                {{course.course_channel}}
+            </td>
+
+
+            <td>
+                <a href="{%url 'edit_course' id=course.id%}">Edit</a>
+            </td>
+
+            <td>
+                <a href="{%url 'delete_course' id=course.id%}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,49 +1,36 @@
+ 
 from django.db import models
+from django.db.models.fields.files import FileField
 
 # Create your models here.
 
-import datetime
-from django.core.validators import MaxValueValidator,MinValueValidator
-#import phone number
-
-
-def current_year():
-    return datetime.date.today().year
-
-
-def max_value_current_year(value):
-    return MaxValueValidator(current_year())(value)
-
-
-# Create your models here.
-
-
-
-class Trainer (models.Model):
-       first_name=models.CharField(max_length=12)
-       last_name=models.CharField(max_length=20)
-       NATIONALITY=(
-           
-           ("Kenyan","Kenyan"),
-           ("Ugandan","Ugandan"),
-           ("Rwandan","Rwandan"),
-           ("South Sudanese","South Sudanese"),
-           )
-       nationality=models.CharField(max_length=20,choices= NATIONALITY, default='Kenyan')
-       GENDER=(
-           ("Male","Male"),
-           ("Female","Female"),
-           ("Non-Binary","Non-Binary"),
-           ("Transgender","Transgender"),
-           )
-       gender=models.CharField(max_length=12,choices=GENDER, default='Male')
-       id=models.CharField(primary_key=True,max_length=20)
-       email=models.EmailField(null=True)
-       phoneNumber=models.CharField(max_length=16,null=True)
-       course=models.CharField(max_length=20)
-       contract=models.FileField(upload_to='documents/%y/%m/%d',null=True)
-       Resume=models.FileField(upload_to='documents/%y/%m/%d',null=True)
-       Salary=models.PositiveBigIntegerField()
-       Company=models.CharField(max_length=20)
-       profile_picture=models.ImageField(upload_to="images|",null=True)
-       
+class Trainer(models.Model):
+    profile_pic = models.ImageField(upload_to = 'images/')
+    first_name=models.CharField(max_length=12)
+    last_name=models.CharField(max_length=12)
+    gender_choice=(
+        ('Female','Female'),
+        ('Male','Male'),
+        ('3','Prefer not to say')
+    )
+    gender=models.CharField(max_length=8,choices=gender_choice)
+    age=models.PositiveSmallIntegerField(null=True, blank=True)
+    date_of_birth=models.DateField(null=True)
+    phone_number=models.CharField(max_length=10)
+    nationality_choice=(
+        ('Rwandan','Rwandan'),
+        ('Kenyan','Kenyan'),
+        ('Ugandan','Ugandan'),
+        ('SouthSudanes','SouthSudanes'),
+        ('Sudanes','Sudanes')
+    )
+    nationality=models.CharField(max_length=15,choices=nationality_choice)
+    national_Id=models.CharField(max_length=20)
+    email_address=models.EmailField(null=True)
+    joining_date=models.DateField(null=True)
+    resume=models.FileField(upload_to="documents/",null=True)
+    contract=models.FileField(upload_to="documents/",null=True, blank=True)
+    course_name=models.CharField(max_length=25)
+    salary=models.PositiveBigIntegerField(null=True, blank=True)
+    job_title=models.CharField(max_length=25)
+    company=models.CharField(max_length=30)

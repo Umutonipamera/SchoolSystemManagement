@@ -1,62 +1,38 @@
+
 from django.db import models
-import datetime
-from django.core.validators import MaxValueValidator,MinValueValidator
-#import phone number
+from django.db.models.enums import Choices
+from datetime import date
+from django.db.models.fields.files import FileField, ImageField
+# Create your models here.
 
-
-
-
-def current_year():
-    return datetime.date.today().year
-
-
-def max_value_current_year(value):
-    return MaxValueValidator(current_year())(value)
-
-
-
-
-class Student (models.Model):
-       first_name=models.CharField(max_length=12)
-       last_name=models.CharField(max_length=20)
-       age=models.PositiveSmallIntegerField()
-       date_of_birth=models.DateField(null=True)
-
-       NATIONALITY=(
-           ("Kenyan","Kenyan"),
-           ("Ugandan","Ugandan"),
-           ("Rwandan","Rwandan"),
-           ("South Sudanese","South Sudanese"),
-       )
-       nationality=models.CharField(max_length=20,choices= NATIONALITY, default='Kenyan')
-       GENDER=(
-           ("Male","Male"),
-           ("Female","Female"),
-           ("Non-Binary","Non-Binary"),
-           ("Transgender","Transgender"),
-        )
-       gender=models.CharField(max_length=12,choices=GENDER, default='Female')
-       id=models.CharField(primary_key=True,max_length=20)
-       email=models.EmailField(null=True)
-       phoneNumber=models.CharField(max_length=16,null=True)
-       medicalReport=models.FileField(upload_to='documents/%y/%m/%d',null=True)
-       admissionDate=models.DateField(default='yyyy-mm-dd')
-       academic_year = models.PositiveIntegerField(default=current_year(), validators=[MinValueValidator(1984),max_value_current_year])
-
-       CITY=(
-           ("Nairobi","Nairobi"),
-           ("Kampala","Kampala"),
-           ("Kigali","Kigali"),
-           ("kartum","Kartum"),
-        )
-
-       city =models.CharField(max_length=12,choices=CITY,default="Nairobi")
-       guadian_name=models.CharField(max_length=20,null=True)
-       guadian_phoneNumber=models.CharField(max_length=16,null=True)
-       profile_picture=models.ImageField(upload_to="images|",null=True)
-       
-      
-       
+class Student(models.Model):
+    profile_pic=models.ImageField(upload_to = 'images/')
+    first_name=models.CharField(max_length=12, null=True)
+    last_name=models.CharField(max_length=12, null=True)
+    gender_choice=(
+        ('Female','Female'),
+        ('Male','Male'),
+        ('3','Prefer not to say')
+    )
+    gender=models.CharField(max_length=8,choices=gender_choice, null=True)
+    age=models.PositiveSmallIntegerField(null=True)
+    date_of_birth=models.DateField(null=True)
+    phone_number=models.CharField(max_length=10)
+    nationality_choice=(
+        ('Rwandan','Rwandan'),
+        ('Kenyan','Kenyan'),
+        ('Ugandan','Ugandan'),
+        ('4','SouthSudanes'),
+        ('5','Sudanes')
+    )
+    nationality=models.CharField(max_length=15,choices=nationality_choice, null=True)
+    national_Id=models.CharField(max_length=20)
+    email_address=models.EmailField(null=True)
+    admission_date=models.DateField(null=True, blank=True)
+    medical_form=models.FileField(upload_to="documents/",null=True)
+    laptop_serial_number=models.CharField(max_length=30, null=True, blank= True)
+    academic_year=models.CharField(max_length=12)
+    course_name=models.CharField(max_length=25, null=True, blank=True)
 
 
 

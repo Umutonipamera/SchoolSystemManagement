@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+body{
+    margin-left: 300px;
+    height:50%;
+    width:80%;
+  
+    z-index:1;
+    top: 0;
+  overflow-x: hidden;
+    }
+
+table{
+    width: 100%;
+    margin-left: -15%;
+    margin-top: 5%;
+    margin-bottom: 8%;
+    color:purple;
+}
+
+th, caption{
+    text-align: left;
+}
+
+table, th, td{
+    border: 1px black;
+;
+    border-collapse: collapse;
+}
+
+ th{
+    padding: 15px;
+    color:black;
+}
+
+    h1{
+        margin-left: 250px;
+        color: rgb(0, 0, 0);
+    }
+    img{
+        width: 100px ;
+        height:100px ;
+        border-radius: 10px;
+    }
+    /* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background:white;
+}
+::-webkit-scrollbar-thumb {
+    background: purple;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:purple;
+}
+.info {
+  border-color: purple;
+  color:purple;
+}
+  
+.info:hover {
+  background:purple;
+  color: white;
+}
+
+.info {
+  border-color: purple;
+  color:purple;
+}
+
+.info:hover {
+  background:purple;
+  color: white;
+}
+.clearfix {
+  margin-left: -160px;
+ 
+}
+.btn{
+  background-color:#ffffff;
+  color:purple;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  width: 300px;
+  margin-right: 71px;
+  border: 1px solid purple;
+}
+a{
+    text-decoration: none;
+}
+
+
+</style>
+</head>
+
+<body>    
+    <h1>Registed Students</h1>
+    <div class="clearfix">
+    <a class="btn info" href="{% url 'register_student' %}"> ADD STUDENT </a>
+    </div>
+
+    <div class="vl"></div>
+    <table class="table">
+        <tr>
+            <th>Profile Picture</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>            
+            <th>Email Address</th>
+            <th>Phone Number</th>
+            <th>Nationality</th>
+            <th>Laptop Number</th>
+            <th>Edit</th>
+            <th>Profile</th>
+            <th>Delete</th>
+        </tr>
+        {% for student in students%}
+        <tr>
+            <td>
+                <img src="{{student.profile_pic.url}}">
+            </td>
+            <td>
+                {{student.first_name}}
+            </td>
+
+            <td>
+                {{student.last_name}}
+            </td>
+
+            <td>
+                {{student.age}}
+            </td>
+
+            <td>
+                {{student.email_address}}
+            </td>
+
+            <td>
+                {{student.phone_number}}
+            </td>
+
+            <td>
+                {{student.nationality}}
+            </td>
+
+            <td>
+                {{student.laptop_serial_number}}
+            </td>
+
+            <td>
+                <a href="{%url 'edit_student' id=student.id%}">Edit</a>
+            </td>
+
+            <td>
+                <a href="{%url 'student_profile' id=student.id%}">Profile</a>
+            </td>
+
+            <td>
+                <a href="{%url 'delete_student' id=student.id%}">Delete</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</body>
+</html>

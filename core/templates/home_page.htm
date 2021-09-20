@@ -1,0 +1,296 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    
+   <style>
+       *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&w=1000&q=80" );
+    height:100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+footer{
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color:black;
+}
+
+.left{
+    padding-left: 300px;
+}
+.text-2{
+    padding-bottom:10px;
+    font-size:20px;
+    font-weight: 500;
+    padding-right:-10px;
+    text-shadow: #000000;
+    color:black;
+    margin-right:80%px;
+    
+}  
+ .home_content{
+     z-index: 999;  
+
+ } 
+.menu-btn{
+    color:white;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+html{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background:white;
+}
+::-webkit-scrollbar-thumb {
+    background: purple;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:purple;
+}
+
+/* all similar content styling codes */
+section{
+    padding: 100px 0;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 100px; 
+    margin: auto;
+}
+
+
+/* navbar styling */
+.navbar{
+    
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    /* padding: 5px 0; */
+   
+    font-family: 'Roboto Slab', serif;
+    transition: all 0.3s ease;
+    /* margin-top: 20px; */
+}
+
+.navbar.sticky{
+    padding: px 0;
+    background: orchid;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color:purple;
+    font-size: 45px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color:black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color:purple;
+    text-decoration: none;
+}
+
+/* home section styling */
+  .home{
+    display: flex;
+    background:   url("") no-repeat center;
+   
+    background-blend-mode: screen;
+    height: 50vh;
+    color: white;
+    min-height: 500px;
+   
+    background-size: 70%;
+    background-attachment: fixed;
+    font-family: 'Roboto Slab', serif; 
+    opacity:1 ; 
+} 
+.home .max-width{
+  width: 100%;
+  /* display: flex; */
+  display: flex;
+}
+.home .max-width .row{
+  margin-right: 6px;
+}
+
+.home .home-content .text-2{
+ 
+    font-size: 40px;
+    font-weight: 600;
+    margin-right: -3px;
+    text-align: center;
+    padding-bottom: -70px;
+}
+.home-content{
+    text-align: center;
+}
+.student{
+          
+             background: none;
+             width: 30%;  
+             
+              font-size: 18px;  
+              font-weight: bolder;
+              padding:8px; 
+              /* padding-right: 10px;   */
+              margin: 10px 0px;   
+              border: solid 2px white;
+              cursor: pointer; 
+              border-radius:12px;  
+              margin-left: 25px;
+             }
+.course{
+             
+             background: none;
+             width: 30%;  
+             
+              font-size: 18px;  
+              font-weight: bolder;
+              padding: 8px; 
+              /* padding-right: 10px;   */
+              margin: 10px 0px;   
+              border: solid 2px white;
+              cursor: pointer; 
+              border-radius: 10px;  
+              margin-left: 25px;
+             }
+ .trainer{
+             
+             background: none;
+             width:30%;  
+             
+              font-size: 18px;  
+              font-weight: bolder;
+              padding: 8px; 
+              /* padding-right: 10px;   */
+              margin: 10px 0px;   
+              border: solid 2px white;
+              cursor: pointer; 
+              border-radius: 10px;  
+              margin-left: 25px;
+             }
+.events{
+             
+             background: none;
+             width: 30%;  
+             
+              font-size: 18px;  
+              font-weight: bolder;
+              padding: 8px; 
+              /* padding-right: 10px;   */
+              margin: 10px 0px;   
+              border: solid 2px white;
+              cursor: pointer; 
+              border-radius: 10px;  
+              margin-left: 25px;
+             }
+             button:hover {   
+              opacity: 0.7; 
+              background: white;  
+              border: solid 1px black;
+              color: purple;}
+
+   </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+   
+<body>    
+    
+     <nav class="navbar">
+        <div class="max-width">
+
+          
+            <div class="logo"><a href="#">c<span><span>o<span>d<span>e</span>H<span>i<span>v<span>e</span></a></div>
+            
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+
+                <li><a href="{%url 'student_list'%}"class="menu-btn">Students</a></li>
+                <li><a href="{%url 'trainer_list'%}"class="menu-btn">Trainers</a></li>
+                <li><a href="{%url 'course_list'%}"class="menu-btn">Courses</a></li>
+               <li><a href="{%url 'cal:calendar'%}"class="menu-btn">Events</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- home section start -->
+    <section class="home" id="home">
+        
+        <div class="max-width">
+            <div class="home-content"> 
+             
+               <h2 class="text-2">AkiraChix School System</h2> 
+                    <button class="student">{{student}} Students</button>
+                    <button class="trainer">{{trainer}} Trainers</button>    
+                    <button class="course">{{course}} Courses</button>
+                    <button class="events">{{events}} Events</button>
+                    </div>
+                    
+                
+                    
+<!--               
+            </div>
+            <div class="left">
+                <img src="https://www.academyfront.com/images/blog/school-software.png" alt="image">
+            </div>
+        </div> -->
+
+       
+    </section> 
+    <footer>@AkiraChix2021</footer>
+  
+    
+</body>
+</html>

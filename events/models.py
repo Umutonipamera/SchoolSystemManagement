@@ -1,22 +1,20 @@
+
+from django.conf.urls import url
 from django.db import models
+import datetime
+from django.urls import reverse
 
 # Create your models here.
+class Events(models.Model):
+    event_name=models.CharField(max_length=12)
+    event_location=models.CharField(max_length=10)
+    start_time = models.DateTimeField(default=datetime.date.today)
+    end_time = models.DateTimeField(default=datetime.date.today)
 
-import datetime
-from django.core.validators import MaxValueValidator,MinValueValidator
-#import phone number
+def __str__(self):
+    return self.event_name
 
-
-
-
-
-class Events (models.Model):
-       event_name=models.CharField(max_length=12)
-       location=models.CharField(max_length=12)
-       date_of_event=models.DateField(default='dd-mm-yyyy')
-       start_duration=models.DurationField()
-       end_duration=models.DurationField()
-       link_of_the_event=models.CharField(max_length=200)
-       description=models.TextField()
-      
-      
+@property
+def get_htm_url(self):
+    url = reverse('event_edit', args=(self.id,))
+    return f'<p>{self.event_name}</p><a href="{url}">edit</a>'

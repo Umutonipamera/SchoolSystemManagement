@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Event</title>
+<style>
+    
+    body{
+        margin:0;
+        font-family:arial,tahoma,sans-serif;
+        font-size:15px;
+        font-weight:normal;
+        direction:ltr;
+        background:purple;
+        background-repeat: no-repeat;
+        }
+     .registration{
+        /* margin:10% auto 0 auto; */
+        padding:40px;
+        width:500px;
+        height:auto;
+        overflow:hidden;
+        background:white;
+        border-radius:20px;
+       margin: auto;
+              }
+    .registration:hover{
+        background: rgba(255, 255, 255, 0.659);
+              }
+        button{
+             
+         background-color:purple;
+         width: 40%;  
+          color:wheat; 
+          font-size: 18px;  
+          font-weight: bolder;
+          padding: 20px;   
+          margin: 15px 0px;   
+          border: none;   
+          cursor: pointer; 
+          border-radius: 15px;  
+         }
+         button:hover {   
+          opacity: 0.7; 
+          background: none;  
+          border: solid 3px purple;
+          color: black;
+      }  
+        input{
+               width: 100%;
+               outline: none;
+             
+               font-size: 18px;
+               padding: 8px 8px;
+               border-radius: 30px;
+               transition: all 0.3 ease;
+               background-color: white;
+               border: solid 1px purple;
+           }
+           select{
+               -webkit-appearance: none;
+                appearance: none;
+                width: 100%;
+               outline: none;
+              font-size: 15px;
+               padding: 8px 8px;
+               border-radius: 30px;
+               transition: all 0.3 ease;
+               background-color: white;
+               border: solid 1px purple;
+           }
+           hr{
+              border-top: 3px purple;
+           }
+    </style>
+</head>
+<body>
+    
+
+    <center><h1>Register Event</h1></center>
+    
+    <div class="registration">
+        <form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            {{form.as_p}}  
+            <button type="submit" class="sign-up-btn">Submit</button>  
+        </form>
+        
+    </div>   
+</body>
+</html>
